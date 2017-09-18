@@ -221,7 +221,7 @@ function Test-UpdateSystemServices
     Assert-NotNull { $updateAvailability }
 
 	# Update the cluster
-	$updateResult = Invoke-AzureRmMlOpClusterSystemServicesUpdate -ResourceGroupName $resourceGroupName -Name $clusterName
+	$updateResult = Update-AzureRmMlOpClusterSystemServices -ResourceGroupName $resourceGroupName -Name $clusterName
     Assert-True { $updateResult.UpdateStatus -eq "Succeeded" }
 	Assert-NotNull { $updateResult.UpdateStartedOn }
 	Assert-NotNull { $updateResult.UpdateCompletedOn }

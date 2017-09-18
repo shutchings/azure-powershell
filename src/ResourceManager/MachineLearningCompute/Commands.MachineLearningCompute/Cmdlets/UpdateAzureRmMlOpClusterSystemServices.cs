@@ -17,18 +17,14 @@ using Microsoft.Azure.Management.Internal.Resources.Utilities.Models;
 using Microsoft.Azure.Management.MachineLearningCompute;
 using Microsoft.Azure.Management.MachineLearningCompute.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Management.Automation;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
 
-    [Cmdlet(VerbsLifecycle.Invoke, CmdletSuffix + "SystemServicesUpdate", SupportsShouldProcess = true)]
+    [Cmdlet(VerbsData.Update, CmdletSuffix + "SystemServices", SupportsShouldProcess = true)]
     [OutputType(typeof(UpdateSystemServicesResponse))]
-    public class InvokeAzureRmMlOpClusterSystemServicesUpdate : MachineLearningComputeCmdletBase
+    public class UpdateAzureRmMlOpClusterSystemServices : MachineLearningComputeCmdletBase
     {
         protected const string CmdletParametersParameterSet =
             "Start a system services update from cmdlet input parameters.";
