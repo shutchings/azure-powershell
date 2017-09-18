@@ -50,7 +50,8 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
             Mandatory = true, 
             ValueFromPipeline = true,
             HelpMessage = ClusterObjectParameterHelpMessage)]
-        public PSOperationalizationCluster Cluster { get; set; }
+        [Alias(ClusterInputObjectAlias)]
+        public PSOperationalizationCluster InputObject { get; set; }
 
         [Parameter(ParameterSetName = ResourceIdParameterSet,
             Mandatory = true, 
@@ -62,7 +63,7 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
         {
             if (string.Equals(this.ParameterSetName, ObjectParameterSet, StringComparison.OrdinalIgnoreCase))
             {
-                var resourceInfo = new ResourceIdentifier(Cluster.Id);
+                var resourceInfo = new ResourceIdentifier(InputObject.Id);
                 ResourceGroupName = resourceInfo.ResourceGroupName;
                 Name = resourceInfo.ResourceName;
             }

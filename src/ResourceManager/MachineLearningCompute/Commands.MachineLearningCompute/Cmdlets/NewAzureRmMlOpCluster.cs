@@ -48,7 +48,8 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
             Mandatory = true, 
             HelpMessage = ClusterParameterHelpMessage)]
         [ValidateNotNullOrEmpty]
-        public PSOperationalizationCluster Cluster { get; set; }
+        [Alias(ClusterInputObjectAlias)]
+        public PSOperationalizationCluster InputObject { get; set; }
 
         // Create using cmdlet parameters
         [Parameter(ParameterSetName = CreateFromCmdletParametersParameterSet,
@@ -150,7 +151,7 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
                 // If we have an object, go ahead and create
                 if (string.Equals(this.ParameterSetName, CreateFromObjectParameterSet, StringComparison.OrdinalIgnoreCase))
                 {
-                    var cluster = Cluster.ConvertToOperationalizationCluster();
+                    var cluster = InputObject.ConvertToOperationalizationCluster();
 
                     WriteObject(new PSOperationalizationCluster(MachineLearningComputeManagementClient.OperationalizationClusters.CreateOrUpdate(ResourceGroupName, Name, cluster)));
                 }
