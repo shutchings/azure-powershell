@@ -6,11 +6,11 @@ using Xunit.Abstractions;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Test.ScenarioTests
 {
-    public class MachineLearningComputeTests : RMTestBase
+    public class MLCTests : RMTestBase
     {
         private readonly XunitTracingInterceptor interceptor;
 
-        public MachineLearningComputeTests(ITestOutputHelper output)
+        public MLCTests(ITestOutputHelper output)
         {
             this.interceptor = new XunitTracingInterceptor(output);
             XunitTracingInterceptor.AddToContext(interceptor);

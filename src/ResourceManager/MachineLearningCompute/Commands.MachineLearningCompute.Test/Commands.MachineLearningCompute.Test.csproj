@@ -158,7 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScenarioTests\MachineLearningComputeTests.cs" />
+    <Compile Include="ScenarioTests\MLCTests.cs" />
     <Compile Include="ScenarioTests\TestController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,16 +167,16 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ScenarioTests\MachineLearningComputeTests.ps1">
+    <None Include="ScenarioTests\MLCTests.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="SessionRecords\Microsoft.Azure.Commands.MachineLearningCompute.Test.ScenarioTests.MachineLearningComputeTests\TestGetKeys.json">
+    <None Include="SessionRecords\Microsoft.Azure.Commands.MachineLearningCompute.Test.ScenarioTests.MLCTests\TestGetKeys.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="SessionRecords\Microsoft.Azure.Commands.MachineLearningCompute.Test.ScenarioTests.MachineLearningComputeTests\TestNewGetRemove.json">
+    <None Include="SessionRecords\Microsoft.Azure.Commands.MachineLearningCompute.Test.ScenarioTests.MLCTests\TestNewGetRemove.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="SessionRecords\Microsoft.Azure.Commands.MachineLearningCompute.Test.ScenarioTests.MachineLearningComputeTests\TestUpdateSystemServices.json">
+    <None Include="SessionRecords\Microsoft.Azure.Commands.MachineLearningCompute.Test.ScenarioTests.MLCTests\TestUpdateSystemServices.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
