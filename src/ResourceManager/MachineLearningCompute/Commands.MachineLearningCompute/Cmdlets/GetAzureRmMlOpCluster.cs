@@ -64,7 +64,7 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
             List<PSOperationalizationCluster> output = new List<PSOperationalizationCluster>();
             clusters.ForEach(cluster => output.Add(new PSOperationalizationCluster(cluster)));
 
-            WriteObject(output);
+            WriteObject(output, true);
         }
     }
 }
