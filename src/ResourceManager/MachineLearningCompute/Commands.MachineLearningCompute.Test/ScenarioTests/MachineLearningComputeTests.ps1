@@ -87,8 +87,8 @@ function Test-NewGetRemove
     # Create the cluster
     $result = New-AzureRmMlOpCluster -ResourceGroupName $resourceGroupName -Name $clusterName -Location "East US 2 EUAP" `
 		-ClusterType "ACS" -Description "Powershell test cluster" -OrchestratorType "Kubernetes" `
-		-ServicePrincipalName "2eca32f5-01fc-4778-ba29-d6b6ecbee43b" `
-		-ServicePrincipalSecret "18p/wFeFaDBpakQw1eBqDejXa5jpB+EjI9ekQOzvUW0=" `
+		-ServicePrincipalName "00000000-0000-0000-0000-000000000000" `
+		-ServicePrincipalSecret "abcdefghijklmnopqrstuvwxwy0123456789abcdefg=" `
 		-MasterCount 1 -AgentCount 2 -AgentVmSize Standard_D3_v2
 
     Assert-True { $result.ProvisioningState -eq "Succeeded" }
