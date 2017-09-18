@@ -234,14 +234,7 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
                         case Management.MachineLearningCompute.Models.ClusterType.Local:
                             break;
                         default:
-                            var validClusterTypes = "";
-
-                            foreach (var clusterType in Enum.GetValues(typeof(ClusterType)))
-                            {
-                                validClusterTypes += $"{clusterType.ToString()} ";
-                            }
-
-                            throw new PSArgumentException($"Cluster type {ClusterType} is invalid.");
+                            break;
                     }
 
                     WriteObject(new PSOperationalizationCluster(MachineLearningComputeManagementClient.OperationalizationClusters.CreateOrUpdate(ResourceGroupName, Name, newCluster)));
