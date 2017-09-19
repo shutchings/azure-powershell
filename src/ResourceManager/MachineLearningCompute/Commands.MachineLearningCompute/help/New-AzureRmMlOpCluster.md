@@ -14,7 +14,7 @@ Creates a new operationalization cluster.
 
 ### Create a new operationalization cluster from an OperationalizationCluster instance definition.
 ```
-New-AzureRmMlOpCluster -ResourceGroupName <String> -Name <String> -Cluster <PSOperationalizationCluster>
+New-AzureRmMlOpCluster -ResourceGroupName <String> -Name <String> -InputObject <PSOperationalizationCluster>
  [-WhatIf] [-Confirm]
 ```
 
@@ -94,13 +94,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Cluster
+### -InputObject
 The operationalization cluster properties.
 
 ```yaml
 Type: PSOperationalizationCluster
 Parameter Sets: Create a new operationalization cluster from an OperationalizationCluster instance definition.
-Aliases: 
+Aliases: Cluster
 
 Required: True
 Position: Named

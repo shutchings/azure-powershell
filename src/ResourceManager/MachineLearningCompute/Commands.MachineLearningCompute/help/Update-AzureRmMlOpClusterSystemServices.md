@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Invoke-AzureRmMlOpClusterSystemServicesUpdate
+# Update-AzureRmMlOpClusterSystemServices
 
 ## SYNOPSIS
 Starts an update on the operationalization cluster's system services.
@@ -14,17 +14,17 @@ Starts an update on the operationalization cluster's system services.
 
 ### Start a system services update from cmdlet input parameters.
 ```
-Invoke-AzureRmMlOpClusterSystemServicesUpdate -ResourceGroupName <String> -Name <String> [-WhatIf] [-Confirm]
+Update-AzureRmMlOpClusterSystemServices -ResourceGroupName <String> -Name <String> [-WhatIf] [-Confirm]
 ```
 
 ### Start a system services update from an PSOperationalizationCluster instance definition.
 ```
-Invoke-AzureRmMlOpClusterSystemServicesUpdate -Cluster <PSOperationalizationCluster> [-WhatIf] [-Confirm]
+Update-AzureRmMlOpClusterSystemServices -InputObject <PSOperationalizationCluster> [-WhatIf] [-Confirm]
 ```
 
 ### Start a system services update from an Azure resouce id.
 ```
-Invoke-AzureRmMlOpClusterSystemServicesUpdate -ResourceId <String> [-WhatIf] [-Confirm]
+Update-AzureRmMlOpClusterSystemServices -ResourceId <String> [-WhatIf] [-Confirm]
 ```
 
 ## DESCRIPTION
@@ -34,20 +34,20 @@ The system services can be updated independently from the operationalization clu
 
 ### Example 1
 ```
-PS C:\> Invoke-AzureRmMlOpClusterSystemServicesUpdate -ResourceGroupName my-group -Name my-cluster
+PS C:\> Update-AzureRmMlOpClusterSystemServices -ResourceGroupName my-group -Name my-cluster
 ```
 
 Starts a system services update on the specified cluster. 
 
 ## PARAMETERS
 
-### -Cluster
+### -InputObject
 The operationalization cluster object.
 
 ```yaml
 Type: PSOperationalizationCluster
 Parameter Sets: Start a system services update from an PSOperationalizationCluster instance definition.
-Aliases: 
+Aliases: Cluster
 
 Required: True
 Position: Named

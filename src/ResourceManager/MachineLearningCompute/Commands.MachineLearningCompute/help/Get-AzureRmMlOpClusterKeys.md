@@ -41,13 +41,13 @@ Returns the secret keys for the services associated with the operationalization 
 
 ## PARAMETERS
 
-### -Cluster
+### -InputObject
 The operationalization cluster object.
 
 ```yaml
 Type: PSOperationalizationCluster
 Parameter Sets: Get operationalization cluster's keys from an OperationalizationCluster instance definition.
-Aliases: 
+Aliases: Cluster
 
 Required: True
 Position: Named

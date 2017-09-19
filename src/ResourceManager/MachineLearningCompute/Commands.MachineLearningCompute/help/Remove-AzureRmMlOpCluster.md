@@ -19,7 +19,7 @@ Remove-AzureRmMlOpCluster -ResourceGroupName <String> -Name <String> [-WhatIf] [
 
 ### Remove an operationalization cluster from an OperationalizationCluster instance definition.
 ```
-Remove-AzureRmMlOpCluster -Cluster <PSOperationalizationCluster> [-WhatIf] [-Confirm]
+Remove-AzureRmMlOpCluster -InputObject <PSOperationalizationCluster> [-WhatIf] [-Confirm]
 ```
 
 ### Remove an operationalization cluster from an Azure resouce id.
@@ -44,13 +44,13 @@ PS C:\> Get-AzureRmMlOpCluster -ResourceGroupName my-group -Name my-cluster | Re
 
 ## PARAMETERS
 
-### -Cluster
+### -InputObject
 The operationalization cluster object.
 
 ```yaml
 Type: PSOperationalizationCluster
 Parameter Sets: Remove an operationalization cluster from an OperationalizationCluster instance definition.
-Aliases: 
+Aliases: Cluster
 
 Required: True
 Position: Named

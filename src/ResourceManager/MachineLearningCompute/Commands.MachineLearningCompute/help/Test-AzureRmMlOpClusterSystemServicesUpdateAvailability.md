@@ -19,7 +19,7 @@ Test-AzureRmMlOpClusterSystemServicesUpdateAvailability -ResourceGroupName <Stri
 
 ### Test for update availability from an OperationalizationCluster instance definition.
 ```
-Test-AzureRmMlOpClusterSystemServicesUpdateAvailability -Cluster <PSOperationalizationCluster>
+Test-AzureRmMlOpClusterSystemServicesUpdateAvailability -InputObject <PSOperationalizationCluster>
 ```
 
 ### Test for update availability from an Azure resouce id.
@@ -49,13 +49,13 @@ PS C:\> Find-AzureRmResource -ResourceType Microsoft.MachineLearningCompute/oper
 
 ## PARAMETERS
 
-### -Cluster
+### -InputObject
 The operationalization cluster object.
 
 ```yaml
 Type: PSOperationalizationCluster
 Parameter Sets: Test for update availability from an OperationalizationCluster instance definition.
-Aliases: 
+Aliases: Cluster
 
 Required: True
 Position: Named
