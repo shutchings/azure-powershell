@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Management.Automation;
 using Microsoft.Azure.Commands.MachineLearningCompute.Models;
 using Microsoft.WindowsAzure.Commands.Utilities.Common;
+using System;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
@@ -25,28 +26,34 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
     [OutputType(typeof(PSOperationalizationCluster), typeof(List<PSOperationalizationCluster>))]
     public class GetAzureRmMlOpCluster : MachineLearningComputeCmdletBase
     {
-        [Parameter(Mandatory = false, 
+        protected const string GetByNameParameterSet =
+            "Get an operationalization cluster by its name.";
+
+        protected const string GetByResourceGroupOrSubscriptionParametersParameterSet =
+            "Get operationalization clusters by resource group or subscription.";
+
+        [Parameter(ParameterSetName = GetByNameParameterSet,
+            Mandatory = true, 
+            HelpMessage = ResourceGroupParameterHelpMessage)]
+        [Parameter(ParameterSetName = GetByResourceGroupOrSubscriptionParametersParameterSet,
+            Mandatory = false, 
             HelpMessage = ResourceGroupParameterHelpMessage)]
         [ValidateNotNullOrEmpty]
         public string ResourceGroupName { get; set; }
 
-        [Parameter(Mandatory = false, 
+        [Parameter(ParameterSetName = GetByNameParameterSet,
+            Mandatory = true, 
             HelpMessage = NameParameterHelpMessage)]
         [ValidateNotNullOrEmpty]
         public string Name { get; set; }
 
         public override void ExecuteCmdlet()
         {
-            if (!string.IsNullOrWhiteSpace(this.Name))
+            if (string.Equals(this.ParameterSetName, GetByNameParameterSet, StringComparison.OrdinalIgnoreCase))
             {
-                if (string.IsNullOrWhiteSpace(this.ResourceGroupName))
-                {
-                    throw new PSArgumentNullException(ResourceGroupName, Resources.MissingResourceGroupName);
-                }
-
                 WriteObject(new PSOperationalizationCluster(this.MachineLearningComputeManagementClient.OperationalizationClusters.Get(this.ResourceGroupName, this.Name)));
             }
-            else
+            else if (string.Equals(this.ParameterSetName, GetByResourceGroupOrSubscriptionParametersParameterSet, StringComparison.OrdinalIgnoreCase))
             {
                 if (!string.IsNullOrWhiteSpace(this.ResourceGroupName))
                 {
