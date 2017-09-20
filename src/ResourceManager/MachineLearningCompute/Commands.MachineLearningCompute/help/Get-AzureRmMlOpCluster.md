@@ -46,7 +46,9 @@ Gets all the operationalization clusters in a subscription.
 ## PARAMETERS
 
 ### -DefaultProfile
-The credentials, account, tenant, and subscription used for communication with azure.```yaml
+The credentials, account, tenant, and subscription used for communication with azure.
+
+```yaml
 Type: IAzureContextContainer
 Parameter Sets: (All)
 Aliases: AzureRmContext, AzureCredential
@@ -63,7 +65,7 @@ The name of the operationalization cluster.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Get an operationalization cluster by its name.
 Aliases: 
 
 Required: False
