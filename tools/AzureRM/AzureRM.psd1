@@ -78,6 +78,7 @@ RequiredModules = @(@{ModuleName = 'AzureRM.Profile'; RequiredVersion = '3.3.2';
                @{ModuleName = 'AzureRM.KeyVault'; RequiredVersion = '3.3.2'; }, 
                @{ModuleName = 'AzureRM.LogicApp'; RequiredVersion = '3.3.2'; }, 
                @{ModuleName = 'AzureRM.MachineLearning'; RequiredVersion = '0.15.5'; }, 
+               @{ModuleName = 'AzureRM.MachineLearningCompute'; RequiredVersion = '0.1.0'},
                @{ModuleName = 'AzureRM.Media'; RequiredVersion = '0.7.5'; }, 
                @{ModuleName = 'AzureRM.Network'; RequiredVersion = '4.3.2'; }, 
                @{ModuleName = 'AzureRM.NotificationHubs'; RequiredVersion = '3.3.2'; }, 
