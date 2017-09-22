@@ -18,12 +18,21 @@
         - Additional information about change #1
 -->
 ## Current Release
+
+## Version 4.4.0
 * Added support for endpoint services to Virtual Network Subnets
     - Updated Add-AzureRmVirtualSubnetConfig: Added optional parameter -ServiceEndpoint
     - Updated New-AzureRmVirtualSubnetConfig: Added optional parameter -ServiceEndpoint
     - Updated Set-AzureRmVirtualSubnetConfig: Added optional parameter -ServiceEndpoint
 * Added cmdlet to list endpoint services available in the location
     - Get-AzureRmVirtualNetworkAvailableEndpointService
+* Added the ability to configure external radius based P2S authentication to the following commandlets
+    - New-AzureVirtualNetworkGateway
+    - Set-AzureVirtualNetworkGateway
+    - Set-AzureRmVirtualNetworkGatewayVpnClientConfig
+* Added cmdlet to allow generation of VpnProfiles for external radius based P2S
+    - New-AzureRmVpnClientConfiguration
+	  - Get-AzureRmVpnClientConfiguration
 * Added support for SKU parameter to Public IP Addresses and Load Balancers
     - Updated New-AzureRMLoadBalancer: Added optional parameter -Sku
     - Updated New-AzureRMPublicIpAddress: Added optional parameter -Sku
