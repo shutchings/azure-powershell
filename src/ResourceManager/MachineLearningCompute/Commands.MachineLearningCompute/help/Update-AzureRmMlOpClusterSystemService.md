@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Update-AzureRmMlOpClusterSystemServices
+# Update-AzureRmMlOpClusterSystemService
 
 ## SYNOPSIS
 Starts an update on the operationalization cluster's system services.
@@ -14,17 +14,17 @@ Starts an update on the operationalization cluster's system services.
 
 ### Start a system services update from cmdlet input parameters.
 ```
-Update-AzureRmMlOpClusterSystemServices -ResourceGroupName <String> -Name <String> [-WhatIf] [-Confirm]
+Update-AzureRmMlOpClusterSystemService -ResourceGroupName <String> -Name <String> [-WhatIf] [-Confirm]
 ```
 
 ### Start a system services update from an PSOperationalizationCluster instance definition.
 ```
-Update-AzureRmMlOpClusterSystemServices -InputObject <PSOperationalizationCluster> [-WhatIf] [-Confirm]
+Update-AzureRmMlOpClusterSystemService -InputObject <PSOperationalizationCluster> [-WhatIf] [-Confirm]
 ```
 
 ### Start a system services update from an Azure resouce id.
 ```
-Update-AzureRmMlOpClusterSystemServices -ResourceId <String> [-WhatIf] [-Confirm]
+Update-AzureRmMlOpClusterSystemService -ResourceId <String> [-WhatIf] [-Confirm]
 ```
 
 ## DESCRIPTION
@@ -34,7 +34,7 @@ The system services can be updated independently from the operationalization clu
 
 ### Example 1
 ```
-PS C:\> Update-AzureRmMlOpClusterSystemServices -ResourceGroupName my-group -Name my-cluster
+PS C:\> Update-AzureRmMlOpClusterSystemService -ResourceGroupName my-group -Name my-cluster
 ```
 
 Starts a system services update on the specified cluster. 

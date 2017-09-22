@@ -3,9 +3,9 @@ external help file: Microsoft.Azure.Commands.MachineLearningCompute.dll-Help.xml
 Module Name: AzureRM.MachineLearningCompute
 online version: 
 schema: 2.0.0
---
+---
 
-# Get-AzureRmMlOpClusterKeys
+# Get-AzureRmMlOpClusterKey
 
 ## SYNOPSIS
 Gets the access keys associated with an operationalization cluster.
@@ -14,17 +14,17 @@ Gets the access keys associated with an operationalization cluster.
 
 ### Get operationalization cluster's keys from cmdlet input parameters.
 ```
-Get-AzureRmMlOpClusterKeys -ResourceGroupName <String> -Name <String>
+Get-AzureRmMlOpClusterKey -ResourceGroupName <String> -Name <String>
 ```
 
 ### Get operationalization cluster's keys from an OperationalizationCluster instance definition.
 ```
-Get-AzureRmMlOpClusterKeys -Cluster <PSOperationalizationCluster>
+Get-AzureRmMlOpClusterKey -Cluster <PSOperationalizationCluster>
 ```
 
 ### Get operationalization cluster's keys from an Azure resource id.
 ```
-Get-AzureRmMlOpClusterKeys -ResourceId <String>
+Get-AzureRmMlOpClusterKey -ResourceId <String>
 ```
 
 ## DESCRIPTION
@@ -34,7 +34,7 @@ The keys for the storage account, container registry, and other services associa
 
 ### Example 1
 ```
-PS C:\> Get-AzureRmMlOpClusterKeys -ResourceGroupName my-group -Name my-cluster
+PS C:\> Get-AzureRmMlOpClusterKey -ResourceGroupName my-group -Name my-cluster
 ```
 
 Returns the secret keys for the services associated with the operationalization cluster.

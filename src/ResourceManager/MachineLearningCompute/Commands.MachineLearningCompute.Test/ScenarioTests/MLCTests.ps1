@@ -157,7 +157,7 @@ function Test-GetKeys
     Assert-True { $result.ProvisioningState -eq "Succeeded" }
 
     # Get the keys
-    $keys = Get-AzureRmMlOpClusterKeys -ResourceGroupName $resourceGroupName -Name $clusterName
+    $keys = Get-AzureRmMlOpClusterKey -ResourceGroupName $resourceGroupName -Name $clusterName
 
     Assert-NotNull { $keys.StorageAccount.ResourceId }
     Assert-NotNull { $keys.StorageAccount.PrimaryKey }
@@ -175,7 +175,7 @@ function Test-GetKeys
     Assert-NotNull { $keys.AppInsights.InstrumentationKey }
 
     # Get the keys - pipelining
-    $keys = Get-AzureRmMlOpCluster -ResourceGroupName $resourceGroupName -Name $clusterName | Get-AzureRmMlOpClusterKeys
+    $keys = Get-AzureRmMlOpCluster -ResourceGroupName $resourceGroupName -Name $clusterName | Get-AzureRmMlOpClusterKey
 
     Assert-NotNull { $keys.StorageAccount.ResourceId }
     Assert-NotNull { $keys.StorageAccount.PrimaryKey }
@@ -221,7 +221,7 @@ function Test-UpdateSystemServices
     Assert-NotNull { $updateAvailability }
 
 	# Update the cluster
-	$updateResult = Update-AzureRmMlOpClusterSystemServices -ResourceGroupName $resourceGroupName -Name $clusterName
+	$updateResult = Update-AzureRmMlOpClusterSystemService -ResourceGroupName $resourceGroupName -Name $clusterName
     Assert-True { $updateResult.UpdateStatus -eq "Succeeded" }
 	Assert-NotNull { $updateResult.UpdateStartedOn }
 	Assert-NotNull { $updateResult.UpdateCompletedOn }

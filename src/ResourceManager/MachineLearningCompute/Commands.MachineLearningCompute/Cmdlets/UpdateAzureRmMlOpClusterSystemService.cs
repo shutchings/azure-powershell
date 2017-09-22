@@ -22,9 +22,9 @@ using System.Management.Automation;
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
 
-    [Cmdlet(VerbsData.Update, CmdletSuffix + "SystemServices", SupportsShouldProcess = true)]
+    [Cmdlet(VerbsData.Update, CmdletSuffix + "SystemService", SupportsShouldProcess = true)]
     [OutputType(typeof(UpdateSystemServicesResponse))]
-    public class UpdateAzureRmMlOpClusterSystemServices : MachineLearningComputeCmdletBase
+    public class UpdateAzureRmMlOpClusterSystemService : MachineLearningComputeCmdletBase
     {
         protected const string CmdletParametersParameterSet =
             "Start a system services update from cmdlet input parameters.";
