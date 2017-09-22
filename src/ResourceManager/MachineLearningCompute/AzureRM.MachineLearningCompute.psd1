@@ -51,7 +51,7 @@ CLRVersion = '4.0'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'AzureRM.Profile'; ModuleVersion = '3.3.2'; })
+RequiredModules = @(@{ModuleName = 'AzureRM.Profile'; ModuleVersion = '3.4.0'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -72,9 +72,9 @@ NestedModules = @('.\Microsoft.Azure.Commands.MachineLearningCompute.dll')
 FunctionsToExport = @()
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = 'Get-AzureRmMlOpCluster', 'Get-AzureRmMlOpClusterKeys',
+CmdletsToExport = 'Get-AzureRmMlOpCluster', 'Get-AzureRmMlOpClusterKey',
                   'Test-AzureRmMlOpClusterSystemServicesUpdateAvailability',
-                  'Update-AzureRmMlOpClusterSystemServices',
+                  'Update-AzureRmMlOpClusterSystemService',
                   'New-AzureRmMlOpCluster', 'Remove-AzureRmMlOpCluster'
 
 # Variables to export from this module
@@ -101,7 +101,7 @@ PrivateData = @{
         Tags = 'Azure','ResourceManager','ARM','MachineLearningCompute'
 
         # A URL to the license for this module.
-        LicenseUri = 'https://raw.githubusercontent.com/Azure/azure-powershell/dev/LICENSE.txt'
+        LicenseUri = 'https://raw.githubusercontent.com/Azure/azure-powershell/preview/LICENSE.txt'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/Azure/azure-powershell'
@@ -110,7 +110,13 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Updated for common code changes'
+        ReleaseNotes = '- Added initial set of cmdlets for MachineLearningCompute
+    - Get-AzureRmMlOpCluster
+    - Get-AzureRmMlOpClusterKey
+    - New-AzureRmMlOpCluster
+    - Remove-AzureRmMlOpCluster
+    - Test-AzureRmMlOpClusterSystemServicesUpdateAvailability
+    - Update-AzureRmMlOpClusterSystemService'
 
         # External dependent modules of this module
         # ExternalModuleDependencies = ''

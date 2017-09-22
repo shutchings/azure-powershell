@@ -21,9 +21,9 @@ using System.Management.Automation;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Get, CmdletSuffix + "Keys")]
+    [Cmdlet(VerbsCommon.Get, CmdletSuffix + "Key")]
     [OutputType(typeof(OperationalizationClusterCredentials))]
-    public class GetAzureRmMlOpClusterKeys : MachineLearningComputeCmdletBase
+    public class GetAzureRmMlOpClusterKey : MachineLearningComputeCmdletBase
     {
         protected const string CmdletParametersParameterSet =
             "Get operationalization cluster's keys from cmdlet input parameters.";

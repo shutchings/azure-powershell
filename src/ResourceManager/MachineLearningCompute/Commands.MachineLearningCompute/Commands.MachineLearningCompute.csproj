@@ -98,13 +98,13 @@
     <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cmdlets\GetAzureRmMlOpClusterKeys.cs" />
+    <Compile Include="Cmdlets\GetAzureRmMlOpClusterKey.cs" />
     <Compile Include="Cmdlets\GetAzureRmMlOpCluster.cs" />
     <Compile Include="Cmdlets\TestAzureRmMlOpClusterSystemServicesUpdateAvailability.cs" />
     <Compile Include="Cmdlets\MachineLearningComputeCmdletBase.cs" />
     <Compile Include="Cmdlets\NewAzureRmMlOpCluster.cs" />
     <Compile Include="Cmdlets\RemoveAzureRmMlOpCluster.cs" />
-    <Compile Include="Cmdlets\UpdateAzureRmMlOpClusterSystemServices.cs" />
+    <Compile Include="Cmdlets\UpdateAzureRmMlOpClusterSystemService.cs" />
     <Compile Include="Models\PSOperationalizationCluster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
@@ -118,7 +118,6 @@
       <Link>AzureRM.MachineLearningCompute.psd1</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="app.config" />
     <None Include="MSSharedLibKey.snk" />
     <None Include="packages.config">
       <SubType>Designer</SubType>

@@ -47,6 +47,14 @@
       * Get-AzureKeyVaultCertificate
       * Remove-AzureKeyVaultCertificate
       * Undo-AzureKeyVaultCertificateRemoval
+* MachineLearningCompute
+    * Added initial set of cmdlets for MachineLearningCompute
+        - Get-AzureRmMlOpCluster
+        - Get-AzureRmMlOpClusterKeys
+        - New-AzureRmMlOpCluster
+        - Remove-AzureRmMlOpCluster
+        - Test-AzureRmMlOpClusterSystemServicesUpdateAvailability
+        - Update-AzureRmMlOpClusterSystemServices
 * Network
     * Added support for endpoint services to Virtual Network Subnets
         - Updated Add-AzureRmVirtualSubnetConfig: Added optional parameter -ServiceEndpoint
