@@ -2034,9 +2034,6 @@
                         <Component Id="cmp82429EE93FD9B6C2AF86D2A51122EDF0" Guid="*">
                             <File Id="filC407F4D6586DB7B794C0CE49BAABB3FA" KeyPath="yes" Source="$(var.sourceDir)\ResourceManager\AzureResourceManager\AzureRM.MachineLearningCompute\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
                         </Component>
-                        <Component Id="cmpF9351177256DE1B13A57F267A3150384" Guid="*">
-                            <File Id="fil91A6A9A886E0049409845F05248714A3" KeyPath="yes" Source="$(var.sourceDir)\ResourceManager\AzureResourceManager\AzureRM.MachineLearningCompute\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll" />
-                        </Component>
                         <Component Id="cmp06D6AECF8C2B77687B3CCDCB11C8F8E2" Guid="*">
                             <File Id="fil1E941EF03570A13B840D1E2FD27C2ED7" KeyPath="yes" Source="$(var.sourceDir)\ResourceManager\AzureResourceManager\AzureRM.MachineLearningCompute\Microsoft.Rest.ClientRuntime.Azure.Authentication.dll" />
                         </Component>
@@ -6317,7 +6314,6 @@
             <ComponentRef Id="cmpF949EF8E8292E2DDEDCE549CA66276C2" />
             <ComponentRef Id="cmp0E7C3658432FB72A5FDBE368BE031658" />
             <ComponentRef Id="cmp82429EE93FD9B6C2AF86D2A51122EDF0" />
-            <ComponentRef Id="cmpF9351177256DE1B13A57F267A3150384" />
             <ComponentRef Id="cmp06D6AECF8C2B77687B3CCDCB11C8F8E2" />
             <ComponentRef Id="cmpDF1110F7475AA305C1DF3DD6BF41A607" />
             <ComponentRef Id="cmp4C09184C04F4353B23BB8A631DCA6D92" />
