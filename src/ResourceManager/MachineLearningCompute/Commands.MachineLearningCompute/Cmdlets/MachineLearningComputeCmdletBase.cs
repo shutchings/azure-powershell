@@ -16,6 +16,7 @@ using Microsoft.Azure.Commands.Common.Authentication;
 using Microsoft.Azure.Commands.Common.Authentication.Models;
 using Microsoft.Azure.Commands.ResourceManager.Common;
 using Microsoft.Azure.Management.MachineLearningCompute;
+using Microsoft.Rest.Azure;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
@@ -34,8 +35,8 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
         public const string DescriptionParameterHelpMessage = "The operationalization cluster's description.";
         public const string ClusterTypeParameterHelpMessage = "The operationalization cluster type.";
         public const string OrchestratorTypeParameterHelpMessage = "The ACS cluster's orchestrator type.";
-        public const string ServicePrincipalNameParameterHelpMessage = "The ACS cluster's orchestrator service principal name.";
-        public const string ServicePrincipalSecretParameterHelpMessage = "The ACS cluster's orchestrator service principal secret.";
+        public const string ClientIdParameterHelpMessage = "The Kubernetes orchestrator service principal id.";
+        public const string SecretParameterHelpMessage = "The Kubernetes orchestrator service principal secret.";
         public const string MasterCountParameterHelpMessage = "The number of master nodes in the ACS cluster.";
         public const string AgentCountParameterHelpMessage = "The number of agent nodes in the ACS cluster.";
         public const string AgentVmSizeParameterHelpMessage = "The VM size of the agent nodes in the ACS cluster.";
@@ -62,6 +63,20 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
                         AzureSession.Instance.ClientFactory.CreateArmClient<MachineLearningComputeManagementClient>(
                             DefaultProfile.DefaultContext, Common.Authentication.Abstractions.AzureEnvironment.Endpoint.ResourceManager));
             }
+        }
+
+        protected void HandleNestedExceptionMessages(CloudException e)
+        {
+            var exceptionDetails = e.Message + ".";
+
+            foreach (var err in e.Body.Details)
+            {
+                exceptionDetails += " " + err.Message + ".";
+            }
+
+            var newException = new CloudException(exceptionDetails);
+      
+            throw newException;
         }
     }
 }

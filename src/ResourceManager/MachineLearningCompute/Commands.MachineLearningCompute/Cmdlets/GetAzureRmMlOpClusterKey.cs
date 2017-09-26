@@ -16,6 +16,7 @@ using Microsoft.Azure.Commands.MachineLearningCompute.Models;
 using Microsoft.Azure.Management.Internal.Resources.Utilities.Models;
 using Microsoft.Azure.Management.MachineLearningCompute;
 using Microsoft.Azure.Management.MachineLearningCompute.Models;
+using Microsoft.Rest.Azure;
 using System;
 using System.Management.Automation;
 
@@ -74,7 +75,14 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
                 Name = resourceInfo.ResourceName;
             }
 
-            WriteObject(MachineLearningComputeManagementClient.OperationalizationClusters.ListKeys(ResourceGroupName, Name));
+            try
+            {
+                WriteObject(MachineLearningComputeManagementClient.OperationalizationClusters.ListKeys(ResourceGroupName, Name));
+            }
+            catch (CloudException e)
+            {
+                HandleNestedExceptionMessages(e);
+            }
         }
     }
 }

@@ -35,7 +35,7 @@ Creates a new operationalization cluster. This will create a cluster object, a c
 
 ### Example 1
 ```
-PS C:\> New-AzureRmMlOpCluster -ResourceGroupName my-group -Name my-cluster -Location "East US 2" -ClusterType "ACS" -OrchestratorType "Kubernetes" -ServicePrincipalName "abc" -ServicePrincipalPassword "xyz"
+PS C:\> New-AzureRmMlOpCluster -ResourceGroupName my-group -Name my-cluster -Location "East US 2" -ClusterType "ACS" -OrchestratorType "Kubernetes" -ClientId "abc" -Secret "xyz"
 ```
 
 Creates a new operationalization cluster with azure container service and Kubernetes as the orchestrator.
@@ -259,8 +259,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ServicePrincipalName
-The ACS cluster's orchestrator service principal name.
+### -ClientId
+The ACS cluster's orchestrator service principal id.
 
 ```yaml
 Type: String
@@ -274,7 +274,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ServicePrincipalSecret
+### -Secret
 The ACS cluster's orchestrator service principal secret.
 
 ```yaml

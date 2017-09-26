@@ -20,6 +20,7 @@ using Microsoft.Azure.Commands.MachineLearningCompute.Models;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
+using Microsoft.Rest.Azure;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
@@ -72,18 +73,18 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 
         [Parameter(ParameterSetName = CreateFromCmdletParametersParameterSet,
             Mandatory = false,
-            HelpMessage = ServicePrincipalNameParameterHelpMessage)]
-        public string ServicePrincipalName { get; set; }
+            HelpMessage = ClientIdParameterHelpMessage)]
+        public string ClientId { get; set; }
 
         [Parameter(ParameterSetName = CreateFromCmdletParametersParameterSet,
             Mandatory = false,
-            HelpMessage = ServicePrincipalSecretParameterHelpMessage)]
-        public string ServicePrincipalSecret { get; set; }
+            HelpMessage = SecretParameterHelpMessage)]
+        public string Secret { get; set; }
 
         // Additional settings for non-local cluster
         [Parameter(ParameterSetName = CreateFromCmdletParametersParameterSet,
             Mandatory = false,
-            HelpMessage = MasterCountParameterHelpMessage)]
+            HelpMessage = DescriptionParameterHelpMessage)]
         public string Description { get; set; }
 
         [Parameter(ParameterSetName = CreateFromCmdletParametersParameterSet,
@@ -221,8 +222,8 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
                                 {
                                     ServicePrincipal = new ServicePrincipalProperties
                                     {
-                                        ClientId = ServicePrincipalName,
-                                        Secret = ServicePrincipalSecret
+                                        ClientId = ClientId,
+                                        Secret = Secret
                                     }      
                                 },
                                 MasterCount = MasterCount,
@@ -238,7 +239,14 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
                             break;
                     }
 
-                    WriteObject(new PSOperationalizationCluster(MachineLearningComputeManagementClient.OperationalizationClusters.CreateOrUpdate(ResourceGroupName, Name, newCluster)));
+                    try
+                    {
+                        WriteObject(new PSOperationalizationCluster(MachineLearningComputeManagementClient.OperationalizationClusters.CreateOrUpdate(ResourceGroupName, Name, newCluster)));
+                    }
+                    catch (CloudException e)
+                    {
+                        HandleNestedExceptionMessages(e);
+                    }
                 }
             }
         }

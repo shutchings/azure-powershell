@@ -19,6 +19,7 @@ using System.Management.Automation;
 using Microsoft.Azure.Commands.MachineLearningCompute.Models;
 using Microsoft.WindowsAzure.Commands.Utilities.Common;
 using System;
+using Microsoft.Rest.Azure;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
@@ -49,20 +50,27 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 
         public override void ExecuteCmdlet()
         {
-            if (string.Equals(this.ParameterSetName, GetByNameParameterSet, StringComparison.OrdinalIgnoreCase))
+            try
             {
-                WriteObject(new PSOperationalizationCluster(this.MachineLearningComputeManagementClient.OperationalizationClusters.Get(this.ResourceGroupName, this.Name)));
+                if (string.Equals(this.ParameterSetName, GetByNameParameterSet, StringComparison.OrdinalIgnoreCase))
+                {
+                    WriteObject(new PSOperationalizationCluster(this.MachineLearningComputeManagementClient.OperationalizationClusters.Get(this.ResourceGroupName, this.Name)));
+                }
+                else if (string.Equals(this.ParameterSetName, GetByResourceGroupOrSubscriptionParametersParameterSet, StringComparison.OrdinalIgnoreCase))
+                {
+                    if (!string.IsNullOrWhiteSpace(this.ResourceGroupName))
+                    {
+                        WriteClusterList(MachineLearningComputeManagementClient.OperationalizationClusters.ListByResourceGroup(this.ResourceGroupName));
+                    }
+                    else
+                    {
+                        WriteClusterList(this.MachineLearningComputeManagementClient.OperationalizationClusters.ListBySubscriptionId());
+                    }
+                }
             }
-            else if (string.Equals(this.ParameterSetName, GetByResourceGroupOrSubscriptionParametersParameterSet, StringComparison.OrdinalIgnoreCase))
+            catch (CloudException e)
             {
-                if (!string.IsNullOrWhiteSpace(this.ResourceGroupName))
-                {
-                    WriteClusterList(MachineLearningComputeManagementClient.OperationalizationClusters.ListByResourceGroup(this.ResourceGroupName));
-                }
-                else
-                {
-                    WriteClusterList(this.MachineLearningComputeManagementClient.OperationalizationClusters.ListBySubscriptionId());
-                }
+                HandleNestedExceptionMessages(e);
             }
         }
 
