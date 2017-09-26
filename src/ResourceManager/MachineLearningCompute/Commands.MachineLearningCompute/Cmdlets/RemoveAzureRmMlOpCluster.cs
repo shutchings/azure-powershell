@@ -17,6 +17,7 @@ using Microsoft.Azure.Management.MachineLearningCompute;
 using Microsoft.Azure.Commands.MachineLearningCompute.Models;
 using System;
 using Microsoft.Azure.Management.Internal.Resources.Utilities.Models;
+using Microsoft.Rest.Azure;
 
 namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
 {
@@ -75,7 +76,14 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Cmdlets
                     Name = resourceInfo.ResourceName;
                 }
 
-                WriteObject(MachineLearningComputeManagementClient.OperationalizationClusters.Delete(ResourceGroupName, Name));
+                try
+                {
+                    MachineLearningComputeManagementClient.OperationalizationClusters.Delete(ResourceGroupName, Name);
+                }
+                catch (CloudException e)
+                {
+                    HandleNestedExceptionMessages(e);
+                }
             }
         }
     }

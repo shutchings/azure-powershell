@@ -38,6 +38,11 @@ namespace Microsoft.Azure.Commands.MachineLearningCompute.Models
 
         public GlobalServiceConfiguration GlobalServiceConfiguration { get; set; }
 
+        public PSOperationalizationCluster()
+        {
+
+        }
+
         public PSOperationalizationCluster(OperationalizationCluster cluster)
         {
             this.Id = cluster.Id;
